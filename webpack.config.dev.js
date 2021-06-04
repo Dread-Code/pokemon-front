@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: [ 'react-hot-loader/patch','./src/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -60,6 +60,7 @@ module.exports = {
     devServer:{
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 3009
+        port: 3009,
+        hot: true
     },
 }
