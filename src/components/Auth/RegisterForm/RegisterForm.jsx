@@ -46,10 +46,9 @@ const RegisterForm = ({ setShowLogin }) => {
           }
         })
         toast.success('You have been register succesfully')
-        setShowLogin(false)
+        setShowLogin(true)
       } catch (error) {
         toast.error(error.message)
-        console.log(error.message)
       }
     }
   })
