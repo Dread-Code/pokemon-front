@@ -12,7 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.3.21",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/runtime": "^7.14.8",
+    "apollo-link-context": "^1.0.20",
+    "apollo-link-http": "^1.5.17",
+    "apollo-link-ws": "^1.0.20",
+    "apollo-upload-client": "^16.0.0",
     "formik": "^2.2.9",
+    "graphql": "^15.5.1",
     "jwt-decode": "^3.1.2",
     "prettier": "^2.3.2",
     "prop-types": "^15.7.2",
@@ -25,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-env": "^7.14.8",
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
