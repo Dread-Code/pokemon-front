@@ -1,10 +1,60 @@
-import React from 'react'
-import { hot } from 'react-hot-loader/root'
+import React, { useState, useEffect, useMemo } from 'react'
+import { ApolloProvider } from '@apollo/client'
+import { ToastContainer } from 'react-toastify'
+import client from './config/apollo'
+import Auth from './pages/Auth'
+import { getToken, decodeToken, removeToken } from './utils/token/token'
+import AuthContext from './context/AuthContext'
 
-const App = () => (
-  <div>
-    <h1>App...</h1>
-  </div>
-)
+const App = () => {
+  const [auth, setAuth] = useState(undefined)
 
-export default hot(App)
+  useEffect(() => {
+    const token = getToken()
+    if (!token) {
+      setAuth(null)
+    } else {
+      setAuth(decodeToken(token))
+    }
+  }, [])
+  const logout = () => {
+    removeToken()
+    setAuth(null)
+  }
+
+  const setUser = user => {
+    setAuth(user)
+  }
+
+  const authData = useMemo(
+    () => ({
+      auth,
+      logout,
+      setUser
+    }),
+    [auth]
+  )
+
+  if (auth === undefined) return null
+
+  return (
+    <ApolloProvider client={client}>
+      <AuthContext.Provider value={authData}>
+        <Auth />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={true}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </AuthContext.Provider>
+    </ApolloProvider>
+  )
+}
+
+export default App
