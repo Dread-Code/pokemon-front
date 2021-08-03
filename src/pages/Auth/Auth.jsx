@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Image } from 'semantic-ui-react'
 
-// import instaclone from '../../assets/png/instaclone.png'
+import Logo from '../../assets/png/pokemon-57-logo.png'
 import LoginForm from '../../components/Auth/LoginForm'
 import RegisterForm from '../../components/Auth/RegisterForm'
 import './Auth.scss'
@@ -11,7 +11,7 @@ export default function Auth() {
 
   return (
     <Container fluid className="auth">
-      {/* <Image src={instaclone} /> */}
+      <Image src={Logo} />
       <div className="container-form">
         {showLogin ? <LoginForm /> : <RegisterForm setShowLogin={setShowLogin} />}
       </div>
@@ -20,16 +20,16 @@ export default function Auth() {
         <p>
           {showLogin ? (
             <>
-              ¿No tienes Cuenta?
+              Don't you have account yet?
               <span role="button" onClick={() => setShowLogin(!showLogin)}>
-                Registrate
+                Sign in
               </span>
             </>
           ) : (
             <>
-              Entra con tu cuenta
+              Use your Pokémon57 account
               <span role="button" onClick={() => setShowLogin(!showLogin)}>
-                Iniciar sesión
+                Log in
               </span>
             </>
           )}
