@@ -1,21 +1,21 @@
 import React from 'react'
 import { Container, Grid, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-// import Logo from '../../assets/png/pokemon57.png'
-import './Header.scss'
+import Logo from '../../assets/png/pokemon-57-logo.png'
 import RightHeader from './RightHeader/RightHeader'
 import Search from './Search/Search'
+import './Header.scss'
 
 const Header = () => (
   <div className="header">
     <Container>
-      <Grid>
-        <Grid.Column width={3} className="header__logo">
+      <Grid verticalAlign="middle">
+        <Grid.Column width={4} className="header__logo">
           <Link to="/">
-            <h1>Pokemon 57</h1>
+            <Image src={Logo} alt="pokemon-57-logo" size="medium" />
           </Link>
         </Grid.Column>
-        <Grid.Column width={10} className="buscador">
+        <Grid.Column width={9} className="buscador">
           <Search />
         </Grid.Column>
         <Grid.Column width={3}>

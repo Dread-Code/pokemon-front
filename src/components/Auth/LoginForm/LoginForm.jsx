@@ -44,7 +44,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <h2 className="login-form-title">Hola de Nuevo</h2>
+      <h2 className="login-form-title">Hi There!</h2>
       <Form className="login-form" onSubmit={formik.handleSubmit}>
         <Form.Input
           type="text"
@@ -61,7 +61,7 @@ const LoginForm = () => {
           error={formik.errors.password && true}
         />
         <Button className="btn-submit" type="submit">
-          Iniciar Sesión
+          Log in
         </Button>
         {error && <p className="submit-error">{error}</p>}
       </Form>

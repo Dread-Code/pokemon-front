@@ -55,7 +55,7 @@ const RegisterForm = ({ setShowLogin }) => {
 
   return (
     <>
-      <h2 className="register-form-title">Registrate para ver fotos y videos de tus amigos</h2>
+      <h2 className="register-form-title">Register for the best pokemons</h2>
       <Form className="register-form" onSubmit={formik.handleSubmit}>
         <Form.Input
           type="text"
