@@ -3,8 +3,8 @@ import { Search as SearchSU } from 'semantic-ui-react'
 import { size } from 'lodash'
 import { useQuery } from '@apollo/client'
 import SEARCH_POKEMON from '../../../gql/pokemon/searchPokemon'
-import './Search.scss'
 import ResultSearch from './ResultSearch'
+import './Search.scss'
 
 export default function Search() {
   const [search, setSearch] = useState(null)
@@ -24,17 +24,17 @@ export default function Search() {
   }
 
   useEffect(() => {
-    if (size(data?.search) > 0) {
-      const users = []
-      data.search.forEach((user, index) => {
-        users.push({
+    if (size(data?.searchPokemon) > 0) {
+      const pokemons = []
+      data.searchPokemon.forEach((pokemon, index) => {
+        pokemons.push({
           key: index,
-          title: user.name,
-          username: user.username,
-          avatar: user.avatar
+          title: pokemon.name,
+          pokemonType: pokemon.pokemonType,
+          avatar: pokemon.img
         })
       })
-      setResults(users)
+      setResults(pokemons)
     } else {
       setResults([])
     }
@@ -44,7 +44,7 @@ export default function Search() {
     setSearch(null)
     setResults([])
   }
-
+  console.log(data)
   return (
     <SearchSU
       className="search-users"
